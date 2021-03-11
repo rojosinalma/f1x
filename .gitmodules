@@ -1,0 +1,3 @@
+[submodule "rpi_gpio"]
+	path = rpi_gpio
+	url = git@github.com:ClockVapor/rpi_gpio.git
