@@ -17,22 +17,25 @@ module GPIO
           io.setup(pin, as: :output, initialize: :high)
         end
 
-        begin
-          loop do
-            io.set_low pins[:beep]
-            io.set_low pins[:red_led]
-            io.set_high pins[:green_led]
-            sleep(0.1)
+        trap("SIGINT") { throw :done }
+        catch :done do
+          begin
+            loop do
+              io.set_low pins[:beep]
+              io.set_low pins[:red_led]
+              io.set_high pins[:green_led]
+              sleep(0.1)
 
-            io.set_high pins[:beep]
-            io.set_high pins[:red_led]
-            io.set_low pins[:green_led]
-            sleep(0.1)
+              io.set_high pins[:beep]
+              io.set_high pins[:red_led]
+              io.set_low pins[:green_led]
+              sleep(0.1)
+            end
+          rescue Exception => e
+            Logger.error(e.full_message)
+            clean!
+            break
           end
-        rescue => e
-          Logger.error(e.full_message)
-          io.clean_up
-          exit 130
         end
       end
     end
