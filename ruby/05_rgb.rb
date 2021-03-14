@@ -43,8 +43,6 @@ module GPIO
             sleep(0.5)
           end
         end
-
-        return true
       end
 
       # Transforms hex into color number
@@ -72,23 +70,14 @@ module GPIO
 
       # Transforms the color number into 0-100 scale.
       def map(target)
-        # min = 0
-        # in_max = 255
+        # min     = 0
+        # in_max  = 255
         # out_max = 100
-        # (asd - 0) * (100 - 0) / (255 - 0) + 0
-        # asd * 100 / 255
-        # asd / 2.55
+
         # (x - min) * (out_max - min) / (in_max - min) + min
 
         (target / 2.55).to_i
       end
-
-
-      trap "SIGINT" do
-        @pins.each{ |name, pin| io.set_high(pin) }
-        exit 130
-      end
-
     end
   end
 end

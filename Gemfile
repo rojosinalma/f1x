@@ -9,5 +9,5 @@ gem 'rpi_gpio'
 gem 'rake'
 gem 'rake-compiler'
 gem 'dotenv'
-gem 'pry-byebug'
+gem 'pry', '~> 0.14.0'
 
