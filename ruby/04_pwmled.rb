@@ -1,7 +1,7 @@
 require 'rpi_gpio'
 
 module GPIO
-  class PWMLED04
+  class PWMLED
 
     @io   = RPi::GPIO.set_numbering :bcm
     @pin  = 18

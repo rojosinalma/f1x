@@ -1,7 +1,7 @@
 require 'rpi_gpio'
 
 module GPIO
-  class LED01
+  class LED
 
     @io  = RPi::GPIO.set_numbering :bcm
     @pin = 17

@@ -25,11 +25,15 @@ def setColor(col):   # For example : col = 0x112233
 	R_val = (col & 0xFF0000) >> 16
 	G_val = (col & 0x00FF00) >> 8
 	B_val = (col & 0x0000FF) >> 0
-	
+
 	R_val = map(R_val, 0, 255, 0, 100)
 	G_val = map(G_val, 0, 255, 0, 100)
 	B_val = map(B_val, 0, 255, 0, 100)
-	
+
+	print ("rval: ", R_val)
+	print ("gval: ", G_val)
+	print ("bval: ", B_val)
+	print ("---")
 	p_R.ChangeDutyCycle(R_val)     # Change duty cycle
 	p_G.ChangeDutyCycle(G_val)
 	p_B.ChangeDutyCycle(B_val)
