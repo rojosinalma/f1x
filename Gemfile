@@ -4,7 +4,10 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem 'wiringpi2'
 gem 'rpi_gpio'
+
 gem 'rake'
 gem 'rake-compiler'
+gem 'dotenv'
+gem 'pry-byebug'
+
